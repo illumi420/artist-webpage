@@ -38,8 +38,10 @@ export default {
     sendEmail: (e) => {
       emailjs.sendForm('contact_service', 'contact_form', e.target, 'user_4zO9NX0sUjYdSzKpYw8HA')
         .then((result) => {
-            console.log('SUCCESS!', response.status, response.text);
+            window.alert('sent')
+            console.log('SUCCESS!', result.status, result.text);
         }, (error) => {
+            window.alert('failed')
             console.log('FAILED...', error);
         });
     }
