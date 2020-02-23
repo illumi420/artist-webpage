@@ -54,8 +54,11 @@ export default {
 
 <style lang="scss" scoped>
 img {
-  height: auto;
-  width: 100%;
+  position: relative;
+  right: -40%;
+  margin-bottom: -35%;
+  height: 25%;
+  width: 25%;
 }
 
 .prev,

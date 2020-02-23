@@ -10,7 +10,7 @@
       <a class="page-link" href="about.html">About</a>
     </button>
     <button class="btn" title="Contact">
-      <router-link to="/Contact">Contact Us</router-link>
+      <router-link to="Contact">Contact Us</router-link>
     </button>
   </div>
 </template>
