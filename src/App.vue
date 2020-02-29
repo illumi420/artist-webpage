@@ -1,20 +1,21 @@
 <template>
-  <div id="app">
+ <div id="app">
     <Menu />
-    <router-view></router-view>
+   <router-view></router-view>
     <Slider />
     <Contact />
-  </div>
+   <iframe width="560" height="315" src="https://www.youtube.com/embed/dxRB4sdbIcw" frameborder="0"
+    frame allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+   </div>
 </template>
 
 <script>
 import Menu from "./components/Menu.vue";
 export default {
   name: "app",
-  components: {
-    Menu,
-    
-  }
+  components: { Menu },
+  
+  
 };
 </script>
 
@@ -30,8 +31,10 @@ export default {
 
 /* background */
 body {
+     
     padding: 0;
     margin: 0;
+    
 }
 
 html {
