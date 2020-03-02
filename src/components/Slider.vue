@@ -1,12 +1,16 @@
 <template>
   <div id="slider">
-      <div v-for="i in [currentIndex]" :key="i">
-        <img :src="currentImg" />
-      </div>
-    <a class="prev" @click="prev" href="#">&#10094; Previous</a>
-    <a class="next" @click="next" href="#">&#10095; Next</a>
+    <modal name="currentImg">
+      <img :src="currentImg" />
+    </modal>
+    <div v-for="i in [currentIndex]" :key="i">
+      <img :src="currentImg" @click="show()" />
+    </div>
+    <a class="prev" @click="prev()" href="#">&#10094; Previous</a>
+    <a class="next" @click="next()" href="#">&#10095; Next</a>
   </div>
 </template>
+
 <script>
 export default {
   name: "Slider",
@@ -23,17 +27,21 @@ export default {
         "https://i.pinimg.com/564x/00/b2/7e/00b27ed59c34e6097a5d74fc78ca0bc9.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/AA78_by_Zdzislaw_Beksinski_1978.jpg/800px-AA78_by_Zdzislaw_Beksinski_1978.jpg"
       ],
-
       timer: null,
-      currentIndex: 0
+      currentIndex: 0,
+      selectedImgUrl: ""
     };
   },
-
   mounted: function() {
-    this.startSlide();
+    // this.startSlide();
   },
-
   methods: {
+    show: function() {
+      this.$modal.show("currentImg");
+    },
+    hide: function() {
+      this.$modal.hide("currentImg");
+    },
     startSlide: function() {
       this.timer = setInterval(this.next, 4000);
     },
@@ -53,12 +61,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+#slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 10% 0;
+  align-items: center;
+}
 img {
   position: relative;
-  right: -40%;
-  margin-bottom: -35%;
-  height: 25%;
-  width: 25%;
 }
 
 .prev,
@@ -86,6 +99,7 @@ img {
   left: 0;
 }
 
+.close:hover,
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.9);
