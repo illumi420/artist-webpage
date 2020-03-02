@@ -3,20 +3,28 @@
     <Menu />
    <router-view></router-view>
     <Slider />
+    <About />
     <Contact />
-   <iframe width="560" height="315" src="https://www.youtube.com/embed/dxRB4sdbIcw" frameborder="0"
-    frame allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-   </div>
-</template>
+   <section>
+    <youtube :video-id="dxRB4sdbIcw" @ready="ready" @playing="playing" player-width="640" player-height="480" :player-vars="{autoplay: 1}"></youtube>
+</section>
+ </div>
+   </template>
 
 <script>
 import Menu from "./components/Menu.vue";
+
+
 export default {
   name: "app",
   components: { Menu },
-  
-  
-};
+  methods: {
+    method (url) {
+      this.videoId = this.$youtube.getIdFromURL(url)
+      this.startTime = this.$youtube.getTimeFromURL(url)
+    }
+  }
+  };
 </script>
 
 <style>
@@ -26,7 +34,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
   color: #ffffff;
-  margin-top: 60px;
+  padding: 10px;
+  margin: 60px;
 }
 
 /* background */

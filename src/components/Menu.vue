@@ -7,7 +7,7 @@
       <router-link to="Slider">Gallery</router-link>
     </button>
     <button class="btn" title="About">
-      <a class="page-link" href="about.html">About</a>
+      <router-link to="About">About</router-link>
     </button>
     <button class="btn" title="Contact">
       <router-link to="Contact">Contact Us</router-link>
