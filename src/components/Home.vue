@@ -1,7 +1,13 @@
 <template>
   <div id="home">
     <section>
-      <iframe width="420" height="315" :src="'https://www.youtube.com/embed/' + videoId"></iframe>
+      <iframe
+        class="frameBorders"
+        width="420"
+        height="315"
+        :src="'https://www.youtube.com/embed/' + videoId"
+        allowfullscreen="true"
+      ></iframe>
     </section>
   </div>
 </template>
@@ -28,5 +34,9 @@ export default {
   margin: 10% 0;
   min-height: 200px;
   align-items: center;
+}
+
+.frameBorders {
+  border: none;
 }
 </style>

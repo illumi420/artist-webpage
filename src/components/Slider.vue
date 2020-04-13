@@ -1,7 +1,9 @@
 <template>
   <div id="slider">
-    <modal name="currentImg">
-      <img :src="currentImg" />
+    <modal name="currentImg" class="fullModal centerize" height="auto" @before-close="startSlide()">
+      <img class="centerize" :src="currentImg" />
+      <a class="prev" @click="prev()" href="#">&#10094; Previous</a>
+      <a class="next" @click="next()" href="#">&#10095; Next</a>
     </modal>
     <div v-for="i in [currentIndex]" :key="i">
       <img :src="currentImg" @click="show()" />
@@ -33,14 +35,12 @@ export default {
     };
   },
   mounted: function() {
-    // this.startSlide();
+    this.startSlide();
   },
   methods: {
     show: function() {
       this.$modal.show("currentImg");
-    },
-    hide: function() {
-      this.$modal.hide("currentImg");
+      clearInterval(this.timer);
     },
     startSlide: function() {
       this.timer = setInterval(this.next, 4000);
@@ -67,19 +67,27 @@ export default {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin: 10% 0;
-  align-items: center;
+  margin: 3% 0;
 }
 img {
   position: relative;
+  width: 50%;
+  height: 80%;
 }
 
+.fullModal {
+  background-color: #0d0d0d;
+}
+.centerize {
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 .prev,
 .next {
   cursor: pointer;
   position: absolute;
   top: 40%;
-
   width: auto;
   padding: 16px;
   color: white;
@@ -90,16 +98,12 @@ img {
   text-decoration: none;
   user-select: none;
 }
-
 .next {
   right: 0;
 }
-
 .prev {
   left: 0;
 }
-
-.close:hover,
 .prev:hover,
 .next:hover {
   background-color: rgba(0, 0, 0, 0.9);

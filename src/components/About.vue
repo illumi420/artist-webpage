@@ -1,14 +1,19 @@
 <template>
   <div id="about">
     <center>
-      <img
-        src="https://cdn.shopify.com/s/files/1/1136/8870/files/Beksinski-741x1024.jpg"
-        width="145px;"
-      />
+      <a
+        href="https://cdn.shopify.com/s/files/1/1136/8870/files/Beksinski-741x1024.jpg"
+        target="_blank"
+      >
+        <img
+          src="https://cdn.shopify.com/s/files/1/1136/8870/files/Beksinski-741x1024.jpg"
+          width="145px;"
+        />
+      </a>
       <h1>
         <font color="red">Zdzisław Beksiński</font>
       </h1>
-      <font size="5.4em">
+      <font size="4.5em">
         <p>
           (pronounced ˈ[zd͡ʑiswaf bɛkˈɕiɲskʲi]
           <i>24 February 1929 – 21 February 2005</i>
@@ -30,7 +35,6 @@
             <br />The second period contained more abstract style, with the main features of formalism.
           </strong>
           <br />
-
           <em>
             <font color="white">
               beksiński was stabbed to death at his Warsaw apartment in February 2005
